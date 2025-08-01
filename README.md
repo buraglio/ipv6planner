@@ -47,7 +47,7 @@ Basic Command
 ./ipv6planner [flags]
 Command Line Options
 Flag	Description	Default Value	Example
--s	Base IPv6 subnet	3fff::/20	-s 2001:db8::/32
+-s	Base IPv6 subnet	3fff::/20	-s 3fff:db8::/32
 -n	Number of POPs	5	-n 10
 -p	Preferred subnet size per POP	36	-p 40
 -l	Comma-separated subnet levels	44,48,64	-l 48,52,56,64
@@ -59,39 +59,40 @@ Flag	Description	Default Value	Example
 ```
 
 
-Examples
-Basic Usage
+### Examples
 
+#### Basic Usage
 
-
-Bash
+```
 ./ipv6planner
-Custom Configuration with JSON Output
+```
 
+#### Custom Configuration with JSON Output
 
+```
+./ipv6planner -s 3fff:db8::/32 -n 10 -p 40 -l 48,52,56,64 -j plan.json
+```
 
-Bash
-./ipv6planner -s 2001:db8::/32 -n 10 -p 40 -l 48,52,56,64 -j &gt; plan.json
-Interactive Mode
+#### Interactive Mode
 
-
-
-Bash
+```
 ./ipv6planner -i
-HTML Output
+```
 
+#### HTML Output
 
+```
+./ipv6planner -s 3fff:db8::/32 -n 10 -p 40 -l 48,52,56,64 -k  plan.html
+```
 
-Bash
-./ipv6planner -k &gt; plan.html
-Output Formats
+#### Output Formats
+
 Text Output (Default)
 
-
-
+```
 Text Only
 IPv6 Address Plan
-Base Subnet: 2001:db8::/32
+Base Subnet: 3fff:db8::/32
 Number of POPs: 5
 Preferred POP subnet size: /40
 Subnet levels: /48 /52 /56 /64 
@@ -104,19 +105,21 @@ Global Subnet Counts:
 
 POP Allocations:
 
-POP 1: 2001:db8::/40
-  Level 1 (/48): 2001:db8::/48 (Available: 256)
-  Level 2 (/52): 2001:db8::/52 (Available: 4096)
-  Level 3 (/56): 2001:db8::/56 (Available: 65536)
-  Level 4 (/64): 2001:db8::/64 (Available: 4294967296)
+POP 1: 3fff:db8::/40
+  Level 1 (/48): 3fff:db8::/48 (Available: 256)
+  Level 2 (/52): 3fff:db8::/52 (Available: 4096)
+  Level 3 (/56): 3fff:db8::/56 (Available: 65536)
+  Level 4 (/64): 3fff:db8::/64 (Available: 4294967296)
 ...
+
+```
+
 JSON Output
 
-
-
+```
 JSON
 {
-  &quot;base_subnet&quot;: &quot;2001:db8::/32&quot;,
+  &quot;base_subnet&quot;: &quot;3fff:db8::/32&quot;,
   &quot;pop_count&quot;: 5,
   &quot;preferred_size&quot;: 40,
   &quot;subnet_levels&quot;: [48,52,56,64],
@@ -129,12 +132,12 @@ JSON
   &quot;pop_allocations&quot;: [
     {
       &quot;pop_number&quot;:1,
-      &quot;pop_subnet&quot;:&quot;2001:db8::/40&quot;,
+      &quot;pop_subnet&quot;:&quot;3fff:db8::/40&quot;,
       &quot;subnets&quot;:[
-        {&quot;cidr&quot;:&quot;2001:db8::/48&quot;,&quot;count&quot;:256,&quot;available&quot;:256},
-        {&quot;cidr&quot;:&quot;2001:db8::/52&quot;,&quot;count&quot;:4096,&quot;available&quot;:4096},
-        {&quot;cidr&quot;:&quot;2001:db8::/56&quot;,&quot;count&quot;:65536,&quot;available&quot;:65536},
-        {&quot;cidr&quot;:&quot;2001:db8::/64&quot;,&quot;count&quot;:4294967296,&quot;available&quot;:4294967296}
+        {&quot;cidr&quot;:&quot;3fff:db8::/48&quot;,&quot;count&quot;:256,&quot;available&quot;:256},
+        {&quot;cidr&quot;:&quot;3fff:db8::/52&quot;,&quot;count&quot;:4096,&quot;available&quot;:4096},
+        {&quot;cidr&quot;:&quot;3fff:db8::/56&quot;,&quot;count&quot;:65536,&quot;available&quot;:65536},
+        {&quot;cidr&quot;:&quot;3fff:db8::/64&quot;,&quot;count&quot;:4294967296,&quot;available&quot;:4294967296}
       ],
       &quot;level_names&quot;:[
         &quot;Level 1 (/48)&quot;,
@@ -145,16 +148,19 @@ JSON
     }
   ]
 }
+```
+
 HTML Output
-HTML Output Sample [Sample image placeholder]
+
+```
+coming soon
+```
 
 Subnet Calculation Methodology
 The tool calculates available subnets using the formula:
 
-
-
-
 Text Only
+
 Available Subnets = 2^(child_prefix - parent_prefix)
 For example:
 - From /40 to /48: 2^(48-40) = 256 subnets
@@ -162,10 +168,10 @@ For example:
 
 Frequently Asked Questions
 Q: Can I use this for IPv4 planning?
-A: No, this tool is specifically designed for IPv6 address planning.
+A: No, this tool is specifically designed for IPv6 address planning. IPv4 is legacy, embrace the today.
 
 Q: How are POP allocations determined?
-A: POPs are allocated sequentially from the base subnet, using the minimum number of bits required for the POP count.
+A: POPs are allocated sequentially from the base subnet, using the minimum number of bits required for the POP count. This could probably be smarter, but alas, I am not that smart.
 
 Q: What if my preferred POP size conflicts with the base subnet?
 A: The tool will display a warning and adjust the allocation accordingly.
