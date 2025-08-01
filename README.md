@@ -3,8 +3,6 @@
 
 A command-line tool for generating hierarchical IPv6 address plans with subnet counts at each level.
 
-![IPv6 Planning Example](https://example.com/ipv6-planning-example.png) *[Example image placeholder]*
-
 ## Features
 
 - Generates IPv6 address plans from a base subnet
@@ -24,29 +22,28 @@ A command-line tool for generating hierarchical IPv6 address plans with subnet c
 ### Installation Steps
 
 1. **Download the tool**:
-   ```bash
-   git clone https://github.com/yourusername/ipv6-planner.git
-   cd ipv6-planner
+```
+git clone https://github.com/yourusername/ipv6-planner.git
+cd ipv6-planner
+```
+
 Build the executable:
 
-
-
-
-Bash
+```
 go build ipv6planner.go
+```
+
+
 (Optional) Install system-wide:
-
-
-
-
-Bash
+```
 sudo mv ipv6planner /usr/local/bin/
-Usage
+```
+
+### Usage
+
 Basic Command
 
-
-
-Bash
+```
 ./ipv6planner [flags]
 Command Line Options
 Flag	Description	Default Value	Example
@@ -59,6 +56,9 @@ Flag	Description	Default Value	Example
 -k	HTML output	N/A	-k
 -i	Interactive mode	N/A	-i
 -h	Show help	N/A	-h
+```
+
+
 Examples
 Basic Usage
 
