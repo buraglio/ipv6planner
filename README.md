@@ -117,7 +117,6 @@ POP 1: 3fff:db8::/40
 JSON Output
 
 ```
-JSON
 {
   &quot;base_subnet&quot;: &quot;3fff:db8::/32&quot;,
   &quot;pop_count&quot;: 5,
@@ -148,6 +147,7 @@ JSON
     }
   ]
 }
+
 ```
 
 HTML Output
