@@ -118,31 +118,31 @@ JSON Output
 
 ```
 {
-  &quot;base_subnet&quot;: &quot;3fff:db8::/32&quot;,
-  &quot;pop_count&quot;: 5,
-  &quot;preferred_size&quot;: 40,
-  &quot;subnet_levels&quot;: [48,52,56,64],
-  &quot;subnet_counts&quot;: [
-    {&quot;prefix_size&quot;:48,&quot;count&quot;:65536,&quot;available&quot;:65536},
-    {&quot;prefix_size&quot;:52,&quot;count&quot;:1048576,&quot;available&quot;:1048576},
-    {&quot;prefix_size&quot;:56,&quot;count&quot;:16777216,&quot;available&quot;:16777216},
-    {&quot;prefix_size&quot;:64,&quot;count&quot;:1099511627776,&quot;available&quot;:1099511627776}
+  base_subnet: 3fff:db8::/32,
+  pop_count: 5,
+  preferred_size: 40,
+  subnet_levels: [48,52,56,64],
+  subnet_counts: [
+    {prefix_size:48,count:65536,available:65536},
+    {prefix_size:52,count:1048576,available:1048576},
+    {prefix_size:56,count:16777216,available:16777216},
+    {prefix_size:64,count:1099511627776,available:1099511627776}
   ],
-  &quot;pop_allocations&quot;: [
+  pop_allocations: [
     {
-      &quot;pop_number&quot;:1,
-      &quot;pop_subnet&quot;:&quot;3fff:db8::/40&quot;,
-      &quot;subnets&quot;:[
-        {&quot;cidr&quot;:&quot;3fff:db8::/48&quot;,&quot;count&quot;:256,&quot;available&quot;:256},
-        {&quot;cidr&quot;:&quot;3fff:db8::/52&quot;,&quot;count&quot;:4096,&quot;available&quot;:4096},
-        {&quot;cidr&quot;:&quot;3fff:db8::/56&quot;,&quot;count&quot;:65536,&quot;available&quot;:65536},
-        {&quot;cidr&quot;:&quot;3fff:db8::/64&quot;,&quot;count&quot;:4294967296,&quot;available&quot;:4294967296}
+      pop_number:1,
+      pop_subnet:3fff:db8::/40,
+      subnets:[
+        {cidr:3fff:db8::/48,count:256,available:256},
+        {cidr:3fff:db8::/52,count:4096,available:4096},
+        {cidr:3fff:db8::/56,count:65536,available:65536},
+        {cidr:3fff:db8::/64,count:4294967296,available:4294967296}
       ],
-      &quot;level_names&quot;:[
-        &quot;Level 1 (/48)&quot;,
-        &quot;Level 2 (/52)&quot;,
-        &quot;Level 3 (/56)&quot;,
-        &quot;Level 4 (/64)&quot;
+      level_names:[
+        Level 1 (/48),
+        Level 2 (/52),
+        Level 3 (/56),
+        Level 4 (/64)
       ]
     }
   ]
