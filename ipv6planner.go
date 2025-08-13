@@ -288,7 +288,7 @@ func generateIPv6Plan(subnet string, popCount, preferredSize int, subnetLevels [
 
 func outputText(plan IPv6Plan) {
 	fmt.Printf("This tool is not intended to provide a comprehensive address plan.\n")
-	fmt.Printf("It should be used to generate a top level heirarchy of IPv6 address plans.\n")
+	fmt.Printf("It should be used to generate a top level hierarchy of IPv6 address plans.\n")
 	fmt.Printf("IPv6 Address Plan\n")
 	fmt.Printf("Base Subnet: %s\n", plan.BaseSubnet)
 	fmt.Printf("Number of POPs: %d\n", plan.POPCount)
